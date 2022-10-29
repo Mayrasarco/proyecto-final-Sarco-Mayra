@@ -1,0 +1,43 @@
+body{
+    background-color: pink;
+}
+nav{
+    background-color:hotpink;
+}
+
+a{
+    font-family:'Anek Malayalam', sans-serif; 
+}
+a:hover{
+    color:burlywood;
+    text-decoration: none;
+}
+ nav ul li{
+    margin: o;
+    padding:0;
+    list-style: none;
+ }
+
+ .nav-menu{
+    display:flex;
+    position: relative;
+ }
+
+h3{
+    font-size: 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: red;
+
+}
+p{
+    text-align: center;
+}
+form{
+    text-align:center;
+  
+}
+
+footer{
+    text-align: center;
+}

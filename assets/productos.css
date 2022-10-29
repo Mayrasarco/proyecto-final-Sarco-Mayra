@@ -1,0 +1,85 @@
+*{
+
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+}
+body {
+    background-color: pink;
+
+}
+
+nav{
+    background-color:hotpink;
+}
+
+a{
+    font-family:'Anek Malayalam', sans-serif; 
+}
+a:hover{
+    color:burlywood;
+    text-decoration: none;
+}
+ nav ul li{
+    margin: o;
+    padding:0;
+    list-style: none;
+ }
+
+ .nav-menu{
+    display:flex;
+    position: relative;
+ }
+ button{
+   width: auto;
+   height: 100%;
+   border: none;
+   cursor: pointer;
+   justify-content: right;
+   font-size: 100%;
+   
+ }
+ h2{
+    color:red;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+ }
+#contenedor{
+    
+        display: grid;
+        gap: 1rem;
+        width: 60rem;
+        margin: 60px auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      
+}
+ .card {
+    width: 330px;
+    height: 430px;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow:0, 2px, 2px rgba(0, 0, 0, 0.2) ;
+    
+  }
+
+  .card button{
+   height: auto;
+   width: 100%;
+  }
+  
+  h3{
+   font-size: 5px;
+  }
+ 
+  
+
+ footer{
+    text-align: center;
+ }
+
+ .noDisplay{
+   display:none;
+ }

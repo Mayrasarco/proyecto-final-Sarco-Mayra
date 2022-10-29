@@ -1,0 +1,51 @@
+body {
+    background-color: pink;
+
+}
+
+nav{
+    background-color:hotpink;
+}
+
+a{
+    font-family:'Anek Malayalam', sans-serif; 
+}
+a:hover{
+    color:burlywood;
+    text-decoration: none;
+}
+ nav ul li{
+    margin: o;
+    padding:0;
+    list-style: none;
+ }
+
+ .nav-menu{
+    display:flex;
+    position: relative;
+ }
+ h1{
+    color: red;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: 50px;
+
+ }
+
+ main{
+    background: linear-gradient(#FFB6C1,#FF0000 );
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    width: 100%;
+    border: 5px solid #F8BBD0 ;
+    color:black;
+    }
+ main img{
+   float: right;
+   width: 30%;
+   height: auto;
+ }
+
+ footer{
+    text-align: center;
+ }
