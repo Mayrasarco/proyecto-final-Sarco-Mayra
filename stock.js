@@ -139,7 +139,9 @@ fetch(`https://jsonplaceholder.typicode.com/posts/1`, {
       carritoLleno =document.getElementById('carrito')
       carrito.innerHTML = "";
       carrito.forEach((producto) => {
-        carritoLleno.innerHTML += `
+        const currentProductInCart = document.createElement("div");
+        currentProductInCart.innerHTML = `
+        
             <div class="card text-dark " id=${producto.nombre} style="width:18rem; height:rem  ; ">
           <div class="card-body">
             <h5 class=card-title">${producto.nombre}"</h5>
@@ -147,31 +149,32 @@ fetch(`https://jsonplaceholder.typicode.com/posts/1`, {
             <p>${producto.cantidad}</p>
             <p>${producto.cantidad * producto.precio}</p>
             <button class="btn btn-dark" id= ${producto.id}>Eliminar</button>
+            
            
            
           </div>
         </div>
             `;
 
+
+            
+            carritoLleno.append(currentProductInCart);
+
+
+            currentProductInCart.querySelector('button').addEventListener("click", () => {
+              carrito.splice(producto.id, 1);
+              localStorage.clear()
+              localStorage.setItem("carrito", JSON.stringify(carrito))
+              document.getElementById(producto.nombre).remove();
+            });
+
+
            
 
 
 
 
-        //boton eliminar, para eliminar algun producto del carrito
-        let eliminar = document.createElement("button");
-        eliminar.innerText = "🗑";
-        eliminar.className = "eliminar-producto";
-        carritoLleno.append(eliminar)
-
-        eliminar.addEventListener("click", () => {
-          carrito.splice(producto.id, 1);
-          localStorage.clear()
-          localStorage.setItem("carrito", JSON.stringify(carrito))
-          document.getElementById(producto.nombre).remove();
-
-          // imprimirCarrito()
-        });
+        
 
       });
 
