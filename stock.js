@@ -136,19 +136,20 @@ fetch(`https://jsonplaceholder.typicode.com/posts/1`, {
 
 
     verCarrito.addEventListener('click', () => {
-      carritoLleno =document.getElementById('carrito')
+      carritoLleno = document.getElementById('carrito')
       carrito.innerHTML = "";
       carrito.forEach((producto) => {
         const currentProductInCart = document.createElement("div");
         currentProductInCart.innerHTML = `
         
-            <div class="card text-dark " id=${producto.nombre} style="width:18rem; height:rem  ; ">
+            <div class="card text-dark " id=${producto.nombre} style="width:15rem; height:15rem  ; ">
           <div class="card-body">
             <h5 class=card-title">${producto.nombre}"</h5>
             <p>${producto.precio}</p>
             <p>${producto.cantidad}</p>
             <p>${producto.cantidad * producto.precio}</p>
             <button class="btn btn-dark" id= ${producto.id}>Eliminar</button>
+          
             
            
            
@@ -157,24 +158,40 @@ fetch(`https://jsonplaceholder.typicode.com/posts/1`, {
             `;
 
 
-            
-            carritoLleno.append(currentProductInCart);
+
+        carritoLleno.append(currentProductInCart);
 
 
-            currentProductInCart.querySelector('button').addEventListener("click", () => {
-              carrito.splice(producto.id, 1);
-              localStorage.clear()
-              localStorage.setItem("carrito", JSON.stringify(carrito))
-              document.getElementById(producto.nombre).remove();
-            });
+        currentProductInCart.querySelector('button').addEventListener("click", () => {
+          const productoIndex = carrito.findIndex((_producto) => _producto.nombre === producto.nombre);
+          if (carrito.length == 1) {
+            carrito = []
+
+          }
+          else { carrito = carrito.splice(productoIndex, 1) }
+          document.getElementById('total-carrito').remove()
+
+          const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
+          const totalPagar = document.createElement("div");
+          totalPagar.className = "total-carrito";
+          totalPagar.setAttribute('id', 'total-carrito')
+          totalPagar.innerHTML = `total a pagar: ${total} $`;
+
+          carritoLleno.append(totalPagar)
+
+          localStorage.clear()
+          localStorage.setItem("carrito", JSON.stringify(carrito))
+          document.getElementById(producto.nombre).remove()
+            ;
+        });
 
 
-           
 
 
 
 
-        
+
+
 
       });
 
@@ -182,19 +199,14 @@ fetch(`https://jsonplaceholder.typicode.com/posts/1`, {
       const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
       const totalPagar = document.createElement("div");
       totalPagar.className = "total-carrito";
+      totalPagar.setAttribute('id', 'total-carrito')
       totalPagar.innerHTML = `total a pagar: ${total} $`;
 
-      verCarrito.append(totalPagar);
+      carritoLleno.append(totalPagar);
     });
 
 
-    const eliminarProducto = () => {
-      const foundId = carrito.find((elemento) => elemento.id);
 
-      carrito = carrito.filter((carritoId) => {
-        return carritoId !== foundId;
-      });
-    }
 
 
 
